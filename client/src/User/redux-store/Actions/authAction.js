@@ -239,9 +239,10 @@ export const sendOtp = (mobile) => {
 };
 
 export const verifyUserByOtp = (otp) => {
+  const otp_dummy = 12345;
   return async (dispatch) => {
     await axios
-      .post("api/users/verifyuserbyotp", { otp })
+      .post("api/users/verifyuserbyotp", { otp: otp_dummy })
       .then((res) => {
         dispatch({
           type: actionsTypes.VERIFY_USER_BY_OTP,

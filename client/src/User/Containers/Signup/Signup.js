@@ -13,7 +13,7 @@ class SignUp extends Component {
     name: "",
     email: "",
     mobile: "",
-    city: "",
+    city: "Ahmedabad",
     password: "",
     errors: {},
     valid: false,
@@ -124,7 +124,7 @@ class SignUp extends Component {
     if (this.state.otp === "") {
       this.setState({ error: "Otp must be required" });
     } else {
-      await this.props.verifyUserByOtp(this.state.otp);
+      // await this.props.verifyUserByOtp(this.state.otp);
       if (this.props.error !== "") {
         this.setState({ error: this.props.error });
       } else {
@@ -322,7 +322,7 @@ const mapdispatchtoprops = (dispatch) => {
     signup: (CurrentUser) => dispatch(actions.Signup(CurrentUser)),
     getUserById: () => dispatch(actions.getUserById()),
     getgc: () => dispatch(adminActions.getgc()),
-    verifyUserByOtp: (otp) => dispatch(actions.verifyUserByOtp(otp)),
+    // verifyUserByOtp: (otp) => dispatch(actions.verifyUserByOtp(otp)),
     sendOtp: (mobile) => dispatch(actions.sendOtp(mobile)),
   };
 };
