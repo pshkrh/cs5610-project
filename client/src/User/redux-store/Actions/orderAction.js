@@ -80,7 +80,7 @@ export const updateorderaddress = (id, address) => {
   return async (dispatch) => {
     await axios
       .post(
-        "http://54.226.204.210:5000/api/order/updateorderaddress",
+        "http://localhost:5000/api/order/updateorderaddress",
         { id, address },
         {
           headers: {
