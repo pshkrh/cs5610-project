@@ -17,18 +17,22 @@ class Profiles extends Component {
     componentDidMount = async () => {
         // const resp = await axios.get("https://localhost:5001/api/users/allusers");
         // console.log("Response", resp);
-        await this.props.getAllUsers();
-        this.updateCurrentRowData(1);
+        const response = await axios.get(
+            "http://localhost:5000/api/users/getallusers"
+        );
+        console.log(typeof response.data, response.data);
+        // await this.props.getAllUsers();
+        this.updateCurrentRowData(1, response.data);
     };
 
     handlePageChange = (pageNumber) => {
         this.updateCurrentRowData(pageNumber);
     };
 
-    updateCurrentRowData = (pageNumber) => {
+    updateCurrentRowData = (pageNumber, response) => {
         let upperLimit = pageNumber * 5;
         let lowerLimit = upperLimit - 5;
-        let data = this.props.allUsers.slice(lowerLimit, upperLimit);
+        let data = response.slice(lowerLimit, upperLimit);
         this.setState({
             currentRowData: data,
             activePage: pageNumber,
@@ -43,7 +47,6 @@ class Profiles extends Component {
     };
 
     render() {
-        console.log("All Users", this.state.allUsers)
         return (
             <div className={classes.container}>
                 <h1 className={classes.title}>All Users</h1>

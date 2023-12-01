@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/test.env" });
+const User = require("./models/usermodel");
 
 const app = express();
 
@@ -31,6 +32,12 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(cors());
+
+app.get("/api/users/getallusers", async (req, res) => {
+  const users = await User.find({});
+  return res.status(200).send(users);
+});
+
 app.use("/api/users", require("./routes/userroute"));
 app.use("/api/order", require("./routes/orderroute"));
 app.use("/api/admin", require("./routes/adminroute"));
