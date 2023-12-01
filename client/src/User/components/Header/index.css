@@ -1,0 +1,97 @@
+.container {
+  top: 0;
+  left: 0;
+  height: 90px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of items */
+  position: fixed;
+  z-index: 500;
+  padding-left: 20px; /* Left padding for the entire container */
+}
+
+.logo {
+  flex-shrink: 0; /* Prevent logo from shrinking */
+  margin-right: 20px; /* Space between logo and next item */
+  width: 70px;
+  height: 70px;
+}
+
+.brandname,
+.home,
+.scrap,
+.pickup,
+.profiles,
+.auth {
+  flex-shrink: 0; /* Prevent these items from shrinking */
+  margin-right: 20px; /* Space between items */
+  color: black;
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.brandname {
+  color: green;
+}
+
+.brandname:hover,
+.home:hover,
+.scrap:hover,
+.pickup:hover,
+.profiles:hover,
+.auth:hover {
+  background-color: green;
+  color: white;
+}
+
+.auth {
+  margin-left: auto; /* Pushes the auth item to the right */
+  color: whitesmoke;
+  background-color: rgb(115, 153, 0);
+}
+
+.auth:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+/* Dropdown CSS */
+.container1 {
+  width: 200px;
+  box-shadow: 0 3px 3px 0 #828282;
+  right: 20px; /* Position from the right */
+  top: 90px; /* Position below the header */
+  z-index: 500;
+  background-color: white;
+  position: fixed;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 10px 20px;
+  color: black;
+}
+
+.option:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Backdrop CSS */
+.Backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,7 @@
+.container {
+  width: 90%;
+  background-image: linear-gradient(to top, transparent, #fff),
+    url(https://www.thekabadiwala.com/images/background-image.png);
+  background-repeat: no-repeat;
+  margin: 120px auto;
+}

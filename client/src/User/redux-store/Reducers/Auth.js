@@ -7,6 +7,7 @@ const initstate = {
   userId: "",
   user: {},
   userTransaction: [],
+  allUsers: [],
 };
 
 const store = (state = initstate, action) => {
@@ -167,6 +168,16 @@ const store = (state = initstate, action) => {
         ...state,
         error: action.error,
         message: "",
+      };
+    case actionTypes.GET_ALL_USERS:
+      return {
+        ...state,
+        allUsers: action.users,
+      };
+    case actionTypes.GET_ALL_USERS_FAILED:
+      return {
+        ...state,
+        error: action.error,
       };
     default:
       return state;

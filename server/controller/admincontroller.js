@@ -120,7 +120,6 @@ exports.gettransaction = async (req, res) => {
 
 exports.addadminwallet = async (req, res) => {
   try {
-    //Please fix this...
     await wallet.findOne({}).then((resp) => {
       if (resp == null) {
         resp.walletAmount = parseFloat(req.body.amount);
@@ -159,14 +158,11 @@ exports.getorders = async (req, res) => {
 };
 
 exports.creategarbage = async (req, res) => {
-  console.log("REQ", req);
   try {
     await Garbage.findOne({ category: req.body.garbage.category }).then(
       async (resp) => {
-        console.log("resp", resp);
         for (let i = 0; i < resp.subcatagory.name; i++) {
           if (req.body.garbage.subcatagory === resp.subcatagory[i].name) {
-            console.log("EXIST ER");
             return res.status(400).send("garbage already exist");
           }
         }
