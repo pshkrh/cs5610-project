@@ -1,6 +1,6 @@
-// src/components/ProfileDetail.jsx
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { useLocation, useHistory } from "react-router-dom";
 import * as actions from "../../redux-store/Actions/authAction";
 import classes from "./index.css";
 
@@ -10,10 +10,12 @@ class ProfileDetail extends Component {
   };
 
   componentDidMount() {
-    const userId = this.props.match.params.id;
-    // Fetch user details using userId
-    // You might need to create a new Redux action for this
-    this.props.getUserById(userId);
+    // const userId = this.props.match.params.id;
+    if (this.props.location && this.props.location.state) {
+      const detail = this.props.location.state.user;
+      this.setState({ user: detail });
+      console.log(detail);
+    }
   }
 
   componentDidUpdate(prevProps) {
