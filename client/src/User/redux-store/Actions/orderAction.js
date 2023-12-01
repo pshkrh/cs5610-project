@@ -103,7 +103,6 @@ export const updateorderaddress = (id, address) => {
 };
 
 export const getgarbage = () => {
-  console.log("INCOMING");
   return async (dispatch) => {
     await axios
       .get("/api/users/getgarbage")

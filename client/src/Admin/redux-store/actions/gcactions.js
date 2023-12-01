@@ -111,6 +111,7 @@ export const getTransaction = () => {
 };
 
 export const addadminwallet = (amount) => {
+  console.log("AMTTT", amount);
   return async (dispatch) => {
     await axios
       .post("/api/admin/addadminwallet", { amount })

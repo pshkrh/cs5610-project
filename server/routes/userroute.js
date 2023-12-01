@@ -17,6 +17,7 @@ const {
   reedommoney,
   sendOtp,
   verifyUserByOtp,
+  getAllUsers,
 } = require("../controller/usercontroller");
 const { creategarbage } = require("../controller/creategarbage");
 
@@ -33,6 +34,8 @@ router.post("/updatepassword", updatepassword);
 router.post("/editprofile", editprofile);
 
 router.get("/getuser", auth, getUserById);
+
+router.get("/allusers", auth, getAllUsers);
 
 router.get("/logout", auth, logout);
 

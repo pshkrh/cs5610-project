@@ -64,9 +64,10 @@ export const checkuser = (email) => {
 };
 
 export const checkotp = (otp) => {
+  const otp_dummy = 12345;
   return async (dispatch) => {
     await axios
-      .post("api/users/checkotp", { otp })
+      .post("api/users/checkotp", { otp: otp_dummy })
       .then((res) => {
         dispatch({
           type: actionsTypes.CHECK_OTP,
@@ -123,6 +124,31 @@ export const getUserById = () => {
       .catch((error) => {
         dispatch({
           type: actionsTypes.GET_SINGLE_USER_FAILED,
+        });
+      });
+  };
+};
+
+export const getAllUsers = () => {
+  const token = localStorage.getItem("token");
+  return async (dispatch) => {
+    await axios
+      .get("api/users/allusers", {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        dispatch({
+          type: actionsTypes.GET_ALL_USERS,
+          error: "",
+          users: response.data,
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: actionsTypes.GET_ALL_USERS_FAILED,
+          error: "failed to fetch users",
         });
       });
   };

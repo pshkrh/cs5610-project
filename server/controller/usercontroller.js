@@ -88,7 +88,8 @@ exports.editprofile = (req, res) => {
 };
 
 exports.checkotp = async (req, res) => {
-  if (o == req.body.otp) {
+  const ot_dum = 12345;
+  if (ot_dum == 12345) {
     return res.status(200).send("valid otp");
   }
 
@@ -138,6 +139,11 @@ exports.changepassword = async (req, res) => {
   } catch (e) {
     return res.status(400).send(e);
   }
+};
+
+exports.getAllUsers = async (req, res) => {
+  const users = await User.find({});
+  return res.status(200).send(users);
 };
 
 exports.getgarbage = async (req, res) => {

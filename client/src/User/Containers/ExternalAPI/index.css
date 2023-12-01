@@ -1,0 +1,36 @@
+body,
+html {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 120px auto !important;
+}
+
+.division1,
+.division2,
+.division3 {
+  margin-bottom: 20px;
+}
+
+.resultsTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.resultsTable th,
+.resultsTable td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+.resultsTable th {
+  background-color: #f2f2f2;
+}
