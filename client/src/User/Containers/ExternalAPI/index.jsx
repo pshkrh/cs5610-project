@@ -45,6 +45,7 @@ function ExternalAPI() {
   };
 
   const handleDetailClick = (placeData) => {
+    console.log("placeData", placeData)
     const serializablePlaceData = {
       // Include only serializable properties
       name: placeData.name,
@@ -92,13 +93,17 @@ function ExternalAPI() {
             <tr>
               <th>Name</th>
               <th>Address</th>
+              <th>Ratings</th>
+              <th>Total Ratings by Users</th>
             </tr>
           </thead>
           <tbody>
             {results.map((place, index) => (
               <tr key={index}>
-                <td onClick={() => handleDetailClick(place)}>{place.name}</td>
+                <td style={{ cursor: "pointer" }} onClick={() => handleDetailClick(place)}>{place.name}</td>
                 <td>{place.vicinity}</td>
+                <td>{place.rating}</td>
+                <td>{place.user_ratings_total}</td>
               </tr>
             ))}
           </tbody>

@@ -46,6 +46,24 @@ class ProfileDetail extends Component {
                   </td>
                   <td>{user.email}</td>
                 </tr>
+                <tr>
+                  <td>
+                    <strong>City:</strong>
+                  </td>
+                  <td>{user.city}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Mobile:</strong>
+                  </td>
+                  <td>{user.mobile}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Wallet Amount:</strong>
+                  </td>
+                  <td>{user.walletAmount}</td>
+                </tr>
                 {/* Add more rows for other user details here */}
               </tbody>
             </table>

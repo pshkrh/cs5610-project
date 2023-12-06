@@ -53,18 +53,17 @@ class Profiles extends Component {
                 <table className={classes.usersTable}>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            {/* <th>ID</th> */}
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Mobile</th>
                             <th>City</th>
-                            <th>Wallet Amount</th>
+                            {/* <th>Wallet Amount</th> */}
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.currentRowData.map((user) => (
                             <tr key={user._id}>
-                                <td>{user._id}</td>
+                                {/* <td>{user._id}</td> */}
                                 <td
                                     onClick={() => this.handleUserClick(user)}
                                     style={{ cursor: "pointer" }}
@@ -72,9 +71,8 @@ class Profiles extends Component {
                                     {user.name}
                                 </td>
                                 <td>{user.email}</td>
-                                <td>{user.mobile}</td>
                                 <td>{user.city}</td>
-                                <td>{user.walletAmount}</td>
+                                {/* <td>{user.walletAmount}</td> */}
                             </tr>
                         ))}
                     </tbody>
