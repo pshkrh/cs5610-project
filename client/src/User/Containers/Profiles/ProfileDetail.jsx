@@ -58,12 +58,12 @@ class ProfileDetail extends Component {
                   </td>
                   <td>{user.mobile}</td>
                 </tr>
-                <tr>
+                {/* <tr>
                   <td>
                     <strong>Wallet Amount:</strong>
                   </td>
                   <td>{user.walletAmount}</td>
-                </tr>
+                </tr> */}
                 {/* Add more rows for other user details here */}
               </tbody>
             </table>
