@@ -11,6 +11,7 @@ export const addgc = (gc) => {
         });
       })
       .catch((e) => {
+        console.log("Eeeeee", e);
         dispatch({
           type: actionTypes.ADD_GARBAGE_COLLECTOR_FAILED,
           message: "Invalid Data",

@@ -180,57 +180,63 @@ const Home = (props) => {
         </div>
         {/* earn more by selling more*/}
         <div className={classes.details}>
-          <div className={classes.info1}>
-            <div className={classes.blocks}>
-              <img src={scrapitems} className={classes.img1} alt="scarpitems" />
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <div className={classes.info1}>
+              <div className={classes.blocks}>
+                <img
+                  src={scrapitems}
+                  className={classes.img1}
+                  alt="scarpitems"
+                />
+                <br />
+                <span>
+                  <b>
+                    we collect 40+
+                    <br />
+                    waste items
+                    <br />
+                  </b>
+                  <small className={classes.small}>
+                    WasteDeal collects 40+ waste items that can be recycled like
+                    Paper, Plastic, Cartons, Metal, E-waste etc.
+                  </small>
+                </span>
+              </div>
+              <div className={classes.blocks}>
+                <img src={weight} className={classes.img1} alt="weight" />
+                <br />
+                <span>
+                  <b>
+                    Electronic waste
+                    <br />
+                    weighing
+                    <br />
+                  </b>
+                  <small className={classes.small}>
+                    For accurate weight measurement we use Electronic Weighing
+                    machine.
+                  </small>
+                </span>
+              </div>
+            </div>
+            <div className={classes.info2}>
+              <img src={price} className={classes.img1} alt="price" />
               <br />
               <span>
                 <b>
-                  we collect 40+
+                  High waste
                   <br />
-                  waste items
-                  <br />
-                </b>
-                <small className={classes.small}>
-                  WasteDeal collects 40+ waste items that can be recycled like
-                  Paper, Plastic, Cartons, Metal, E-waste etc.
-                </small>
-              </span>
-            </div>
-            <div className={classes.blocks}>
-              <img src={weight} className={classes.img1} alt="weight" />
-              <br />
-              <span>
-                <b>
-                  Electronic waste
-                  <br />
-                  weighing
+                  prices
                   <br />
                 </b>
                 <small className={classes.small}>
-                  For accurate weight measurement we use Electronic Weighing
-                  machine.
+                  We make sure to offer attractive prices for waste items by
+                  accurately weighing the waste using Electronic weighing
+                  machine. You can also avail different offers we provide
+                  throughout the year.
                 </small>
               </span>
             </div>
-          </div>
-          <div className={classes.info2}>
-            <img src={price} className={classes.img1} alt="price" />
-            <br />
-            <span>
-              <b>
-                High waste
-                <br />
-                prices
-                <br />
-              </b>
-              <small className={classes.small}>
-                We make sure to offer attractive prices for waste items by
-                accurately weighing the waste using Electronic weighing machine.
-                You can also avail different offers we provide throughout the
-                year.
-              </small>
-            </span>
           </div>
           <div className={classes.info3}>
             <h1 style={{ fontWeight: "bold" }}>
