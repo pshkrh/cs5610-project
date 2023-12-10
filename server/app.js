@@ -24,7 +24,7 @@ mongoose
 app.use(bodyParser.json());
 
 var corsOptions = {
-  origin: "http://" + process.env.CORS_HOST + ":" + process.env.CORS_PORT,
+  origin: process.env.CORS_HOST,
   "Access-Control-Allow-Origin": "*",
   credentials: "true",
 };
