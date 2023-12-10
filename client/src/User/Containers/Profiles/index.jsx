@@ -18,7 +18,7 @@ class Profiles extends Component {
         // const resp = await axios.get("https://localhost:5001/api/users/allusers");
         // console.log("Response", resp);
         const response = await axios.get(
-            "http://localhost:5000/api/users/getallusers"
+            `${process.env.REACT_APP_API_URL}/api/users/getallusers`
         );
         console.log(typeof response.data, response.data);
         // await this.props.getAllUsers();
