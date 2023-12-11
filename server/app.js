@@ -5,6 +5,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/test.env" });
 const User = require("./models/usermodel");
+const ExternalApi = require("./models/ExternalApi");
 
 const app = express();
 
@@ -36,6 +37,59 @@ app.use(cors());
 app.get("/api/users/getallusers", async (req, res) => {
   const users = await User.find({});
   return res.status(200).send(users);
+});
+
+app.get("/api/externalapis", async (req, res) => {
+  try {
+    const name = req.query.name;
+    const result = await ExternalApi.findOne({ name: name });
+    if (result) {
+      res.send(result);
+    } else {
+      res.send(false);
+    }
+  } catch (error) {
+    res.status(500).send("Error retrieving data from the database");
+  }
+});
+
+app.post("/api/externalapis", async (req, res) => {
+  try {
+    const newEntry = new ExternalApi({
+      name: req.body.name,
+      address: req.body.vicinity,
+      rating: req.body.rating,
+      totalUserRatings: req.body.user_ratings_total,
+    });
+
+    await newEntry.save();
+    res.status(201).send(newEntry);
+  } catch (error) {
+    // res.status(500).send("Error saving data to the database");
+    res.status(500).send(error);
+    console.log(error);
+  }
+});
+
+app.put("/api/externalapis", async (req, res) => {
+  try {
+    const { name } = req.body;
+    const update = { ...req.body };
+
+    const updatedEntry = await ExternalApi.findOneAndUpdate(
+      { name: name },
+      update,
+      { new: true }
+    );
+
+    if (updatedEntry) {
+      res.send(updatedEntry);
+    } else {
+      res.status(404).send("Entry not found");
+    }
+  } catch (error) {
+    res.status(500).send("Error updating data in the database");
+  }
 });
 
 app.use("/api/users", require("./routes/userroute"));
