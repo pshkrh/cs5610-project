@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import classes from "./index.css"; // Adjust the path as necessary
 
@@ -36,6 +36,7 @@ function ExternalAPI() {
       service.nearbySearch(request, (res, status) => {
         if (status === window.google.maps.places.PlacesServiceStatus.OK) {
           setResults(res);
+          sessionStorage.setItem('searchData', JSON.stringify({ type, radius, location, results: res }));
         } else {
           console.error("Places API error:", status);
           setResults([]);
@@ -45,20 +46,40 @@ function ExternalAPI() {
   };
 
   const handleDetailClick = (placeData) => {
-    console.log("placeData", placeData)
     const serializablePlaceData = {
       // Include only serializable properties
       name: placeData.name,
       vicinity: placeData.vicinity,
       place_id: placeData.place_id,
+      rating: placeData.rating,
+      user_ratings_total: placeData.user_ratings_total,
       // other properties you need
     };
+
+    // Update session storage if any relevant state changes
+    const currentSearchData = {
+      type,
+      radius,
+      location,
+      results,
+    };
+    sessionStorage.setItem('searchData', JSON.stringify(currentSearchData));
 
     history.push({
       pathname: `/search/${placeData.place_id}`,
       state: { detail: serializablePlaceData },
     });
   };
+  useEffect(() => {
+    const savedSearchData = sessionStorage.getItem('searchData');
+    if (savedSearchData) {
+      const { type, radius, location, results } = JSON.parse(savedSearchData);
+      setType(type);
+      setRadius(radius);
+      setLocation(location);
+      setResults(results);
+    }
+  }, []);
 
   return (
     <div className={classes.container}>
@@ -93,8 +114,6 @@ function ExternalAPI() {
             <tr>
               <th>Name</th>
               <th>Address</th>
-              <th>Ratings</th>
-              <th>Total Ratings by Users</th>
             </tr>
           </thead>
           <tbody>
@@ -102,8 +121,6 @@ function ExternalAPI() {
               <tr key={index}>
                 <td style={{ cursor: "pointer" }} onClick={() => handleDetailClick(place)}>{place.name}</td>
                 <td>{place.vicinity}</td>
-                <td>{place.rating}</td>
-                <td>{place.user_ratings_total}</td>
               </tr>
             ))}
           </tbody>
