@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import classes from "./index.css";
-import { axios } from 'axios';
+import axios from 'axios';
 
 function DetailPage() {
   const location = useLocation();
@@ -19,12 +19,12 @@ function DetailPage() {
         detail.name
       )}`
     );
+    console.log("response", response)
 
     if (response.data) {
       setIsDataAvailable(response.data);
     }
   };
-
   useEffect(() => {
     checkGet();
   }, []);
