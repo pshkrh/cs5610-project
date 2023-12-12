@@ -19,8 +19,8 @@ class SignUp extends Component {
     valid: false,
     errorclass: [classes.name],
     berror: "",
-    verify: false,
-    otp: "",
+    verify: true,
+    otp: 12345,
     error: "",
   };
 
@@ -107,8 +107,20 @@ class SignUp extends Component {
       // }
 
       // this.setState({errors:{}})
+      const user = {
+        name: this.state.name,
+        email: this.state.email,
+        mobile: this.state.mobile,
+        city: this.state.city,
+        password: this.state.password,
+      };
+      await this.props.signup(user);
       if (this.props.error === "") {
-        this.setState({ verify: true });
+        // this.setState({ verify: true });
+        this.props.history.push("/");
+        await this.props.getUserById();
+        this.props.history.push("/");
+        await this.props.getUserById();
       }
     }
   }
@@ -289,8 +301,10 @@ class SignUp extends Component {
             <input
               type="number"
               placeholder="Enter Otp"
+              value="12345"
+              // disabled
               required
-              onChange={(e) => this.setState({ otp: e.target.value })}
+              onChange={(e) => this.setState({ otp: 12345 })}
             />
             <br />
             <h5 style={{ color: "red" }}>
@@ -303,8 +317,8 @@ class SignUp extends Component {
     ) : null;
     return (
       <div>
-        {!this.state.verify && signup}
-        {verify}
+        {signup}
+        {/* {verify} */}
       </div>
     );
   }
