@@ -171,11 +171,11 @@ const Home = (props) => {
           </div>
           <div className={classes.scrap}>
             <h1 style={{ fontWeight: "bold" }}>{props.totalUser}+</h1>
-            <h4 style={{ fontWeight: "bold" }}>customer</h4>
+            <h4 style={{ fontWeight: "bold" }}>customers</h4>
           </div>
           <div className={classes.scrap}>
             <h1 style={{ fontWeight: "bold" }}>500+</h1>
-            <h4 style={{ fontWeight: "bold" }}>monthly pickup</h4>
+            <h4 style={{ fontWeight: "bold" }}>monthly pickups</h4>
           </div>
         </div>
         {/* earn more by selling more*/}
