@@ -31,7 +31,7 @@ router.post("/checkotp", checkotp);
 
 router.post("/updatepassword", updatepassword);
 
-router.post("/editprofile", editprofile);
+router.post("/profile", editprofile);
 
 router.get("/getuser", auth, getUserById);
 

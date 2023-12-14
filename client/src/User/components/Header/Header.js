@@ -45,7 +45,7 @@ class Header extends Component {
         ? { backgroundColor: "green", color: "white" }
         : {};
     const namecolor =
-      this.props.location.pathname === "/editprofile" ||
+      this.props.location.pathname === "/profile" ||
       this.props.location.pathname === "/orders" ||
       this.props.location.pathname === "/wallet" ||
       this.props.location.pathname === "/search" ||
@@ -118,7 +118,7 @@ class Header extends Component {
         {this.state.dropdown ? (
           <div className={classes.container1}>
             <div onClick={() => this.setState({ dropdown: false })}>
-              <Link to="/editprofile" style={{ textDecoration: "none" }}>
+              <Link to="/profile" style={{ textDecoration: "none" }}>
                 <h5>
                   <span
                     className={classes.option}
