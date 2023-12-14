@@ -41,7 +41,7 @@ class User extends Component {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/scraprate" component={Scraprate} />
-          <Route path="/editprofile" component={Editprofile} />
+          <Route path="/profile" component={Editprofile} />
           <Route path="/changepsw" component={Changepsw} />
           <Route path="/wallet" component={Wallet} />
           <Route path="/bankinfo/:amount" component={BankInfo} />
